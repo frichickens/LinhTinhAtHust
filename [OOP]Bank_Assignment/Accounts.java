@@ -1,13 +1,16 @@
 public class Accounts {
 	protected String name;
-	protected int accountNumber;
+	protected String accountNumber;
 	protected double balance;
+	protected String accountType;
 	public int fee = 5000;
 	
-	public Accounts(String name, int accountNumber, double initBalance) {
+	public Accounts(String name, String accountNumber, double initBalance) {
 		this.name = name;
 		this.accountNumber = accountNumber;
 		this.balance = initBalance;
+		this.name = name;
+		this.accountType = "Normal Account";
 	}
 	
     public void deposit(double amount) {
@@ -20,7 +23,7 @@ public class Accounts {
     }
 
     public void withdraw(double amount) {
-        if (amount > 0 && amount <= balance && balance >= 50000+fee) {
+        if (amount > 0 && balance - amount - fee >= 50000) {
             balance -= (amount+fee);
             System.out.println("Withdrawn: " + amount);
         } else {
@@ -32,6 +35,7 @@ public class Accounts {
         System.out.println("Account Holder: " + name);
         System.out.println("Account Number: " + accountNumber);
         System.out.println("Balance: " + balance);
+        System.out.println("Type: " + accountType);
     }
 	
 }

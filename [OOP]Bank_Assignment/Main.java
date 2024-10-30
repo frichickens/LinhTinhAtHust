@@ -1,18 +1,25 @@
+import java.util.ArrayList;
 public class Main {
 	public static void main(String[] args) {
         // Create a regular bank account
-        Accounts account1 = new Accounts("Alice", 12345, 500.0);
-        account1.displayAccountInfo();
-        account1.deposit(200.0);
-        account1.withdraw(100.0);
-        account1.displayAccountInfo();
-
-        // Create a saving account
-        Saving_Accounts savingAccount = new Saving_Accounts("Bob", 67890, 1000.0, 5.0);
-        savingAccount.displayAccountInfo();
-        savingAccount.deposit(300.0);
-        savingAccount.withdraw(100.0); // Should not be allowed
-        savingAccount.addMonthlyInterest();
-        savingAccount.displayAccountInfo();
+		Banking_System Bank_Sys = new Banking_System();
+        
+        Accounts user1 = new Accounts("Skibdi Toilet","1020393920102",32000000);
+        Accounts user2 = new Accounts("Zhong Xina","1010101010101",50000000);
+        Accounts user3 = new Accounts("Camavinga","202021010302",100000000);
+        Saving_Accounts user4 = new Saving_Accounts("Bob", "67890", 1000.0, 5.0);
+        
+        Bank_Sys.addCustomer(user1);
+        Bank_Sys.addCustomer(user2);
+        Bank_Sys.addCustomer(user3);
+        Bank_Sys.addCustomer(user4);
+        
+        ArrayList<Accounts> Accounts = Bank_Sys.getCustomers();
+        System.out.println("INNFORMATION OF USERS: " + "\n");
+        for (Accounts Acc : Accounts){
+            Acc.displayAccountInfo();
+            System.out.println();
+        }
+        
     }
 }
