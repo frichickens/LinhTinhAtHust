@@ -1,0 +1,62 @@
+.data
+	maxText: .asciz "Max value is: "
+	minText: .asciz "Min value is: "
+	endl: .asciz "\n"
+.text
+
+# read input N
+li a7, 5
+ecall
+# save N to t0
+addi t0, a0, 0
+
+# let MIN(x1) and MAX(x2) Riscv interger
+li x1, 0x7FFFFFFF # postive (MIN)
+li x2, 0x80000000 # negative (MAX)
+    
+loop:
+	# read each input
+	li a7, 5
+	ecall
+	
+	addi t0,t0, -1
+	
+	# save input to t1
+	addi t1, a0, 0
+	# n[i] > max => n[i] = max
+	bge t1, x2, findMax
+contMax:
+	# n[i] < min => n[i] = min
+	blt t1, x1, findMin
+contMin:
+	bne t0,zero, loop
+	j exit
+
+findMax:
+	addi x2, t1, 0
+	j contMax
+
+findMin:
+	addi x1, t1, 0
+	j contMin
+exit:
+# Print Min
+li a7,4
+la a0, minText
+ecall
+addi a0, x1, 0
+li a7, 1
+ecall
+
+# Endline
+li a7,4
+la a0, endl
+ecall
+
+# Print Max
+li a7,4
+la a0, maxText
+ecall
+addi a0, x2, 0
+li a7, 1
+ecall
