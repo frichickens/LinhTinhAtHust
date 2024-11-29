@@ -1,0 +1,27 @@
+Chapter 3: ISA
+Instructions
+
+Ex1. Explain the role of the funct3 and funct7 fields of the R-format instructions?
+
+
+Ex2. Explain the differences between the S and SB instruction formats.
+
+
+Ex3. Write a RISC-V assembly program to do the following:
+Input an integer from console (using the ecall instruction).
+Calculate the sum of all digits of that integer.
+Print the calculated sum value to console (using the ecall function).
+
+
+Ex4. Write a RISC-V assembly program to do the following:
+Read an integer N from console.
+Then read N integers from console.
+Find and print the values of the smallest and largest number from the N integers that have been read.
+
+
+Ex5. Write a RISC-V assembly program to do the following
+Implement an AVG() function that accepts 2 integers as input, then calculate and return a 32-bit floating point number with the value equal to the average value of the two input.
+Using the above AVG() function, write a program that continuously reads 2 integers A and B from console and printout the average values of these 2 integers. The process only finishes in case both values of A and B are 0.
+
+
+Ex6: Try rewrite the programs in Ex4 and Ex5 with instructions from the compact instruction set RV32C.
