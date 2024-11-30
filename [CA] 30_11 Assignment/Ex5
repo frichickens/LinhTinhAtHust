@@ -45,8 +45,10 @@ AVG:
     	li a7, 4
 	la a0, resText
 	ecall
+	
     	li a7, 2
     	ecall
+    	
     	li a7, 4
 	la a0, endl
 	ecall
